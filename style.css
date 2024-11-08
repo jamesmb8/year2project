@@ -1,13 +1,44 @@
-
-.logincontainer{
-    padding-left: 50px;
-    padding-top: 70px;
-    margin-left: 30px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+* {
+  font-family: "Poppins";
 }
-.logintitle{
-    margin: auto;
-    text-align: center;
-    padding-top: ;
+.logincontainer {
+  padding-left: 50px;
+  padding-top: 70px;
+  margin-left: 25px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  background-color: lightgrey;
+  width: 40%;
+}
+.logintitle {
+  margin: auto;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+#loginbutton {
+    margin-bottom: 30px;
+
+}
+.gotoregister{
+    padding-right: 50px;
+    padding-top: 70px;
+    margin-right: 25px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    background-color: lightgrey;
+    width: 40%;
+}
+
+
+/* Register button */
+#registerbutton {
+}
+
+.gotoregister {
+    
+}
+
+.gotologin {
+
 }

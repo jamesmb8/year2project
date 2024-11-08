@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>Register</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class = "registercontainer">
+        <div class="registertitle">
+            <h2>Register</h2>
+        </div>
+        <form>
+            <label for="name">Company name:</label><br>
+          <input type="text" id="name" name="name"><br>
+         
+          <label for="email">Email:</label><br>
+          <input type="text" id="email" name="email"><br>
+           <label for="pass">Password:</label><br>
+          <input type="text" id="pass" name="pass"><br>
+            <label for="pass">Confirm Password:</label><br>
+          <input type="text" id="cpass" name="cpass"><br>
+          <input type="submit" id="registerbutton"value="Register">
+
+        </form>
+        
+    </div>
+    <div class ="gotologin">
+      <h4>Already got an Account?</h4>
+      <a href="login.html">Press here</a>
+    </div>
+
     
-</body>
+  </body>
 </html>
