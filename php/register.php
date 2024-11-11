@@ -14,7 +14,8 @@ if ($conn->connect_error) {
     die("Connection Failed");
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['pass'];
@@ -25,15 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-$hashedp = password_hash($password, PASSWORD_DEFAULT);
-echo "Name: $name, Email: $email, HashedP: $hashedp <br>";
-$sql = "INSERT INTO users (name, email, password) VALUES (?,?,?)";
-$try = $conn->prepare($sql);
+    $hashedp = password_hash($password, PASSWORD_DEFAULT);
+    echo "Name: $name, Email: $email, HashedP: $hashedp <br>";
+    $sql = "INSERT INTO users (name, email, password) VALUES (?,?,?)";
+    $try = $conn->prepare($sql);
 
-$try->bind_param("sss", $name, $email, $hashedp);
-$try->execute();
+    $try->bind_param("sss", $name, $email, $hashedp);
+    $try->execute();
 
-$try->close();
+    $try->close();
 }
 $conn->close();
 
