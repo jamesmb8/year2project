@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $email = $_POST['email'];
     $password = $_POST['pass'];
     $confirm_password = $_POST['cpass'];
+    $role = "manager";
 
 
     if ($password !== $confirm_password) {
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $sql = "INSERT INTO users (name, email, password, role) VALUES (?,?,?,?)";
     $try = $conn->prepare($sql);
 
-    $try->bind_param("ssss", $name, $email, $hashedp, "manager");
+    $try->bind_param("ssss", $name, $email, $hashedp, $role);
     if ($try->execute()) {
         header("Location: mainpage.html");
         exit();

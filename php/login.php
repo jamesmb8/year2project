@@ -15,3 +15,14 @@ if ($conn->connect_error) {
 } else {
     echo ("Successfull");
 }
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+    $confirm_password = $_POST['cpass'];
+    $role = "customer";
+}

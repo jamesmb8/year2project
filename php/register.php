@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $email = $_POST['email'];
     $password = $_POST['pass'];
     $confirm_password = $_POST['cpass'];
-    $role = $_POST['typeuser'];
+    $role = "customer";
 
     if ($password !== $confirm_password) {
         die("Passwords don't match");
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     $try->bind_param("ssss", $name, $email, $hashedp, $role);
     if ($try->execute()) {
-        header("Location: mainpage.html");
+        header("Location: //dashboard.html");
         exit();
     }
     
