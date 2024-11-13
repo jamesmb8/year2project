@@ -52,9 +52,7 @@
   margin-bottom: 20px;
 }
 
-.registerLoginTitle{
-  background-color: lightgrey;
-}
+
 
 
 /* Register page */
@@ -91,5 +89,5 @@ form label{
 }
 
 .change {
-  
+
 }
