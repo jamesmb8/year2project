@@ -17,12 +17,30 @@ if ($conn->connect_error) {
 }
 
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    $name = $_POST['name'];
+    
     $email = $_POST['email'];
     $password = $_POST['pass'];
-    $confirm_password = $_POST['cpass'];
-    $role = "customer";
+   
+
+
+$sql = "SELECT id, password, role from users WHERE email= ?";
+$try = $conn->prepare($sql);
+$try->bind_param("s", $email);
+$try->execute();
+$try->store_result();
+$try->bind_result($id, $hashed_password, $role);
+$try->fetch();
+
+
+$_SESSION['user_id'] = $id;
+$_SESSION['role'] = $role;
+header("../dashboard.html");
+exit();
 }
+$try->close();
+$conn->close();
+
+
+?>
