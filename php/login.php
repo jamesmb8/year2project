@@ -25,19 +25,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
    
 
 
-$sql = "SELECT id, password, role from users WHERE email= ?";
-$try = $conn->prepare($sql);
-$try->bind_param("s", $email);
-$try->execute();
-$try->store_result();
-$try->bind_result($id, $hashed_password, $role);
-$try->fetch();
+        $sql = "SELECT userID, password, role from users WHERE email= ?";
+        $try = $conn->prepare($sql);
+        $try->bind_param("s", $email);
+        $try->execute();
+        $try->store_result();
+        $try->bind_result($id, $hashed_password, $role);
+        $try->fetch();
 
 
-$_SESSION['user_id'] = $id;
-$_SESSION['role'] = $role;
-header("../dashboard.html");
-exit();
+        $_SESSION['user_id'] = $id;
+        $_SESSION['role'] = $role;
+        header("../dashboard.html");
+        exit();
 }
 $try->close();
 $conn->close();

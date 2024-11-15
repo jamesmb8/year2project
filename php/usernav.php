@@ -1,5 +1,5 @@
 
-
+  <link rel="stylesheet" href="style.css" />
 <div class="sidenvav">
     <?php  if ($role =="customer"): ?>
     <a href="dashboard.html">Home</a>
