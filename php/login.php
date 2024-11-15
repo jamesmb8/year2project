@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -10,13 +12,9 @@ $dbname = "InventoryManagement";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection Failed");
-} else {
-    echo ("Successfull");
-}
 
 
+$error = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     
@@ -30,13 +28,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $try->bind_param("s", $email);
         $try->execute();
         $try->store_result();
-        $try->bind_result($id, $hashed_password, $role);
+
+        if ($try->num_rows > 0) 
+        {
+        $try->bind_result($id, $hashedp, $role);
         $try->fetch();
+            if (password_verify($password, $hashedp)) 
+            {
+            $_SESSION['user_id'] = $id;
+            $_SESSION['role'] = $role;
+            
+
+            if ($role === 'admin') 
+            {
+            header("Location: ../admindash.html");
+            } elseif ($role === 'manager')
+            {
+            header("Location: ../admindash.html");
+            } elseif ($role === 'customer')
+            {
+            header("Location: ../dashboard.html");
+            }
+            exit();
+        } else {
+            $error = "Incorrect Password, try again";
+        }
+
+        } else {
+        $error = "Incorrect Email, try again";
+        }
+
+       
 
 
-        $_SESSION['user_id'] = $id;
-        $_SESSION['role'] = $role;
-        header("../dashboard.html");
+       
+      
         exit();
 }
 $try->close();
