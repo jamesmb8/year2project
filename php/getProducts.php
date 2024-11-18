@@ -15,12 +15,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $try = "SELECT productID, productName, price, quantity FROM products";
 $result = $conn->query($try);
 
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows) {
     $products = [];
     while ($row = $result->fetch_assoc()) {
-        $products = $row;
+        $products[] = $row;
     }
-    echo json_encode(["success" => true, "produts" => $products]);
+    echo json_encode(["success" => true, "products" => $products]);
 } else {
     echo json_encode(["success" => true, "products" => []]);
 }

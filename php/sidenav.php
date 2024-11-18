@@ -1,6 +1,9 @@
-
-  <link rel="stylesheet" href="style.css" />
-<div class="sidenvav">
+<?php
+session_start();
+$role = $_SESSION['role'] ?? 'customer';
+?>
+  <link rel="stylesheet" href="../style.css" />
+<div class="sidenav">
     <?php  if ($role =="customer"): ?>
     <a href="dashboard.html">Home</a>
     <a href="account.html">Account</a>
@@ -8,7 +11,7 @@
    <a href="dashboard.html">Home</a>
     <a href="account.html">Account</a>
     <a href="reports.html">Reports</a>
-     <?php  elseif ($role =="manager"): ?>
+     <?php  elseif ($role =="admin"): ?>
    <a href="dashboard.html">Home</a>
     <a href="account.html">Account</a>
     <a href="reports.html">Reports</a>

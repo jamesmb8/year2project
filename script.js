@@ -14,12 +14,12 @@ fetch("php/sidenav.php")
         sidenav.innerHTML = data;
   });
 
-fetch("get_products.php")
-    .then(response => response.json())
-    .then(data => {
+fetch("php/getProducts.php")
+    .then((response) => response.json())
+    .then((data) => {
         if (data.success) {
             const products = data.products;
-            products.forEach(product => {
+            products.forEach((product) => {
                 const row = document.createElement("tr");
                 row.setAttribute("data-product-id", product.productID);
 
