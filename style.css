@@ -204,7 +204,8 @@ form input[type="submit"] {
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color:#111;
+   float: left;
   padding: 20px 10px;
 }
 
@@ -236,7 +237,7 @@ form input[type="submit"] {
 
 /* Float the link section to the right */
 .topleft {
-  float: left;
+ 
 }
 
  
