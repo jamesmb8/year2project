@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $email = $_POST['email'];
     $password = $_POST['pass'];
     $confirm_password = $_POST['cpass'];
-    $role = "manager";
+    $role = "admin";
 
 
     if ($password !== $confirm_password) {
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     $try->bind_param("ssss", $name, $email, $hashedp, $role);
     if ($try->execute()) {
-        header("Location: mainpage.html");
+        header("Location: ../admindash.html");
         exit();
     }
 }

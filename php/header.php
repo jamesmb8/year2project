@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="../CSS/style.css" />
 <div class = "header" id="header"
 
     <h4>Company Name</h4>

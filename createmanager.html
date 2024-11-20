@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post" action = "php/managerregister.php">
-            <label for="name">Name:</label><br>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Register</title>
+  </head>
+  <body>
+    <div class = "register-container">
+        <div class="register-title">
+            <h2>Create an account</h2>
+        </div>
+        <form method="post" action = "php/managerregister.php">
+            <label for="name">Company Name:</label><br>
           <input type="text" id="name" name="name" required><br>
+ 
          
           <label for="email">Email:</label><br>
           <input type="text" id="email" name="email" required><br>
+
            <label for="pass">Password:</label><br>
           <input type="text" id="pass" name="pass" required><br>
+
             <label for="pass">Confirm Password:</label><br>
           <input type="text" id="cpass" name="cpass" required><br>
 
-          <input type="submit" id="registerbutton"value="Register">
+          <input type="submit" id="register-button"value="Register">
 
         </form>
+        
+    </div>
+    <div class ="go-to-login">
+      <h4>Already got an Account?</h4>
+      <a href="login.html">LogIn here</a>
+    </div>
+
     
-</body>
+  </body>
 </html>

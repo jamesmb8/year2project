@@ -13,6 +13,11 @@ fetch("php/sidenav.php")
     .then((data) => {
         sidenav.innerHTML = data;
   });
+  fetch("php/adminsidenav.php")
+    .then((response) => response.text())
+    .then((data) => {
+      sidenav.innerHTML = data;
+    });
 
 fetch("php/getProducts.php")
     .then((response) => response.json())

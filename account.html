@@ -9,7 +9,7 @@
   </head>
 
   <body>
-
+<div id="sidenav"></div>
 
     <div class = "accountcontainer">
 
@@ -25,14 +25,28 @@
             <input type="text" id="email" placeholder="Email:" name="email"><br>
             <label for="pass">Password:</label><br>
             <input type="text" id="pass" placeholder="Password:" name="pass"><br>
-            <input type="submit" id="loginbutton"value="Login">
-          </form>
+            </form>
         </div> 
 
-        <div class="registerLoginTitle">
-          <h2>Register <h2>
+        <div class="MyPastOrdersTitle">
+          <h2>My Past Orders: <h2>
         </div>
 
-        
+        <div class="accountform">
+            <form method="post" action="php/account.php">
+              <label for="date">Date:</label><br>
+              <input type="date" id="date" placeholder="Date:" name="date"><br>
+              <label for="item">Item:</label><br>
+              <input type="text" id="item" placeholder="Item:" name="item"><br>
+              <label for="quantity">Quantity:</label><br>
+              <input type="text" id="quantity" placeholder="Quantity:" name="quantity"><br>
+              <label for="price">Price:</label><br>
+              <input type="text" id="price" placeholder="Price:" name="price"><br>
+              </form>
+          </div> 
+
+
+
+      <script src="script.js"></script>
   </body>
 </html>
