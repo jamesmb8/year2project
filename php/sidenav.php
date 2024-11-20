@@ -2,7 +2,7 @@
 session_start();
 $role = $_SESSION['role'] ?? 'customer';
 ?>
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../CSS/style.css" />
 <div class="sidenav" id="sidenav">
 
     <a href="dashboard.html">Home</a>

@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Redirect to login if not logged in
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
+  header("Location: login.html");
+  exit;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +37,10 @@
         </tbody>
 
     </table>
+
   </div>
+  <a href="php/logout.php">Logout</a>
+
 <script src="script.js"></script>
 </body>
 </html>

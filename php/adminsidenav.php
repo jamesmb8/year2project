@@ -1,6 +1,6 @@
 <?php
 session_start();
-$role = $_SESSION['role'] ?? 'customer';
+$role = $_SESSION['role'];
 ?>
 <link rel="stylesheet" href="../style.css" />
 <div class="adminsidenav" id="adminsidenav">
