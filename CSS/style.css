@@ -1,0 +1,254 @@
+* {
+  font-family: "Poppins";
+}
+
+/* Log in page */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+.logincontainer {
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.logintitle {
+  margin: auto;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  float: middle;
+}
+#loginbutton {
+  margin: auto;
+  text-align: center;
+  background-color: #4070f4;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  float: middle;
+  border-radius: 50px;
+  padding: 15px;
+  margin-top: 30px;
+  
+}
+.loginform {
+  display: flex;
+  flex-direction: column;
+  float: middle;
+  margin: auto;
+  text-align: center;
+}
+#email {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 30px;
+}
+#pass {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+
+
+
+/* Register page */
+.register-container {
+  padding-right: 50px;
+  padding-top: 70px;
+  margin-top: 100px;
+  background-color: lightgrey;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  float: middle;
+  margin: auto;
+  text-align: center;
+  border-radius: 25px;
+}
+.register-title h2 {
+  margin-bottom: 30px;
+  font-size: 20px;
+  
+}
+
+form label{
+  margin-top: 35px;
+  font-size: 17px;
+  display :block
+}
+
+form input[type="text"],
+form input[type="password"] {
+  width: 65%;
+  padding: 2px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+form input[type="submit"] {
+  width: 65%;
+  padding: 2px;
+  background-color: #4070f4;
+  margin-bottom: 60px;
+  font-size: 15px;
+ 
+}
+
+.go-to-login {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%; 
+  display: block; 
+
+}
+
+
+
+
+
+
+/* Dashboard */
+
+.bi {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+/*
+ * Sidebar
+ */
+
+@media (min-width: 768px) {
+  .sidebar .offcanvas-lg {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+  }
+  .navbar-search {
+    display: block;
+  }
+}
+
+.sidebar .nav-link {
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+}
+
+/*
+ * Navbar
+ */
+
+.sidenav {
+  height: 200%; 
+
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s; 
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+
+
+/* Header */
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Float the link section to the right */
+.topleft {
+  float: left;
+}
+
+ 
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
