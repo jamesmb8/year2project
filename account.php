@@ -20,12 +20,12 @@
         <div class="accountform">
           
             <label for="name">Name:</label><br>
-            <input type="text" id="name" placeholder="Name:" name="name"><br>
+           
             <label for="email">Email:</label><br>
-            <input type="text" id="email" placeholder="Email:" name="email"><br>
+         
             <label for="pass">Password:</label><br>
-            <input type="text" id="pass" placeholder="Password:" name="pass"><br>
-            </form>
+          
+           
         </div> 
 
         <div class="MyPastOrdersTitle">
@@ -33,19 +33,19 @@
         </div>
 
         <div class="accountform">
-            <form method="post" action="php/account.php">
+           
               <label for="date">Date:</label><br>
-              <input type="date" id="date" placeholder="Date:" name="date"><br>
+             
               <label for="item">Item:</label><br>
-              <input type="text" id="item" placeholder="Item:" name="item"><br>
+             
               <label for="quantity">Quantity:</label><br>
-              <input type="text" id="quantity" placeholder="Quantity:" name="quantity"><br>
+             
               <label for="price">Price:</label><br>
-              <input type="text" id="price" placeholder="Price:" name="price"><br>
-              </form>
+             
+           
           </div> 
 
-
+ <a href="php/logout.php">Logout</a>
 
       <script src="script.js"></script>
   </body>

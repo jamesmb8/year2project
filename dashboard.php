@@ -39,7 +39,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
     </table>
 
   </div>
-  <a href="php/logout.php">Logout</a>
+ 
 
 <script src="script.js"></script>
 </body>
