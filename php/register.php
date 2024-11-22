@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     $try->bind_param("ssss", $name, $email, $hashedp, $role);
     if ($try->execute()) {
-        header("Location: ../dashboard.html");
+        header("Location: ../dashboard.php");
         exit();
     }
     
