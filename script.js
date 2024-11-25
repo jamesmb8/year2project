@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("header");
   const sidenav = document.getElementById("sidenav");
   const productTableBody = document.querySelector("#producttable tbody");
+  const viewBasketBtn = document.getElementById("viewBasketBtn");
+
+  // Redirect to basket.php when the button is clicked
+  viewBasketBtn.addEventListener("click", () => {
+    window.location.href = "basket.php";
+  });
 
   // Load the header
   fetch("php/header.php")
@@ -18,29 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.json())
     .then((data) => {
       const role = data.role;
-      if (role === "admin" || role === "manager") {
-        // Load admin sidenav for admins and managers
-        fetch("php/adminsidenav.php")
-          .then((response) => response.text())
-          .then((data) => {
-            sidenav.innerHTML = data;
-          })
-          .catch((error) => {
-            console.error("Error loading admin sidenav:", error);
-          });
-      } else if (role === "customer") {
-        // Load regular sidenav for customers
-        fetch("php/sidenav.php")
-          .then((response) => response.text())
-          .then((data) => {
-            sidenav.innerHTML = data;
-          })
-          .catch((error) => {
-            console.error("Error loading sidenav:", error);
-          });
-      } else {
-        console.warn("Unknown role:", role);
-      }
+      const sidenavFile =
+        role === "admin" || role === "manager"
+          ? "php/adminsidenav.php"
+          : "php/sidenav.php";
+
+      fetch(sidenavFile)
+        .then((response) => response.text())
+        .then((data) => {
+          sidenav.innerHTML = data;
+        })
+        .catch((error) => {
+          console.error("Error loading sidenav:", error);
+        });
     })
     .catch((error) => {
       console.error("Error fetching user role:", error);
@@ -71,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     `;
           productTableBody.appendChild(row);
         });
+
+        // Attach event listeners after products are loaded
+        attachButtonListeners();
       } else {
         console.error("Failed to load products:", data.message);
       }
@@ -78,4 +77,158 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.error("Error fetching products:", error);
     });
+
+  // Function to attach event listeners to dynamically created buttons
+  function attachButtonListeners() {
+    // Plus/Minus buttons for quantity control
+    productTableBody.addEventListener("click", (event) => {
+      if (event.target.classList.contains("quantity-btn")) {
+        const button = event.target;
+        const action = button.getAttribute("data-action");
+        const input = button.parentElement.querySelector(".quantity-input");
+        let value = parseInt(input.value);
+
+        if (action === "increase") {
+          value++;
+        } else if (action === "decrease" && value > 0) {
+          value--;
+        }
+
+        input.value = value;
+      }
+    });
+
+    // Add to Basket button
+    productTableBody.addEventListener("click", (event) => {
+      if (event.target.classList.contains("add-to-basket-btn")) {
+        const row = event.target.closest("tr");
+        const productId = row.getAttribute("data-product-id");
+        const quantityInput = row.querySelector(".quantity-input");
+        const quantity = parseInt(quantityInput.value);
+
+        if (quantity > 0) {
+          fetch("php/addToBasket.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ productId, quantity }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                alert("Product added to basket!");
+              } else {
+                alert("Failed to add product to basket: " + data.message);
+              }
+            })
+            .catch((error) =>
+              console.error("Error adding product to basket:", error)
+            );
+        } else {
+          alert("Please select a quantity greater than 0.");
+        }
+      }
+    });
+
+    // Remove item from basket
+    const basketTableBody = document.querySelector("#basketTable tbody");
+
+    if (basketTableBody) {
+      fetch("php/getBasket.php")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            const basketItems = data.items;
+            basketItems.forEach((item) => {
+              const row = document.createElement("tr");
+              row.setAttribute("data-product-id", item.productID);
+
+              row.innerHTML = `
+                <td>${item.productName}</td>
+                <td>£${parseFloat(item.price).toFixed(2)}</td>
+                <td>
+                  <div class="quantity-control">
+                    <button class="quantity-btn" data-action="decrease">-</button>
+                    <input type="text" class="quantity-input" value="${
+                      item.quantity
+                    }" readonly>
+                    <button class="quantity-btn" data-action="increase">+</button>
+                  </div>
+                </td>
+                <td>£${(item.price * item.quantity).toFixed(2)}</td>
+                <td>
+                  <button class="remove-item-btn">Remove</button>
+                </td>
+              `;
+              basketTableBody.appendChild(row);
+            });
+
+            // Attach event listeners for quantity and removal
+            attachBasketListeners();
+          } else {
+            console.error("Failed to load basket:", data.message);
+          }
+        })
+        .catch((error) => console.error("Error fetching basket:", error));
+    }
+  }
+
+  // Function to handle quantity updates and item removal
+  function attachBasketListeners() {
+    basketTableBody.addEventListener("click", (event) => {
+      const button = event.target;
+
+      if (button.classList.contains("quantity-btn")) {
+        const action = button.getAttribute("data-action");
+        const row = button.closest("tr");
+        const productId = row.getAttribute("data-product-id");
+        const quantityInput = row.querySelector(".quantity-input");
+        let quantity = parseInt(quantityInput.value);
+
+        if (action === "increase") {
+          quantity++;
+        } else if (action === "decrease" && quantity > 0) {
+          quantity--;
+        }
+
+        if (quantity === 0 && action === "decrease") {
+          removeItemFromBasket(productId, row);
+          return;
+        }
+
+        quantityInput.value = quantity;
+
+        updateBasket(productId, quantity, row);
+      }
+
+      if (button.classList.contains("remove-item-btn")) {
+        const row = button.closest("tr");
+        const productId = row.getAttribute("data-product-id");
+
+        // Immediately remove the item without asking for confirmation
+        removeItemFromBasket(productId, row);
+      }
+    });
+  }
+
+  // Remove item from basket
+  function removeItemFromBasket(productId, row) {
+    fetch("php/removeFromBasket.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ productId }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          row.remove(); // Remove the row from the table
+        } else {
+          console.error("Failed to remove item from basket:", data.message);
+        }
+      })
+      .catch((error) =>
+        console.error("Error removing item from basket:", error)
+      );
+  }
 });

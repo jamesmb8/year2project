@@ -21,8 +21,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
 <body>
 <div id="header"></div>
 <div id="sidenav"></div>
+
   <div class ="main-content">
+
     <h1>Products</h1>
+    <div class="basket-button-container">
+    <button id="viewBasketBtn" class="basket-button">View Basket</button>
+  </div>
     <table id="producttable" class="producttable">
       <thead>
       <tr>

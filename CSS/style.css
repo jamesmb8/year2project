@@ -145,7 +145,24 @@ form input[type="submit"] {
 
 
 /* Dashboard */
- 
+ .basket-button-container {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.basket-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.basket-button:hover {
+  background-color: #45a049;
+}
 
 .bi {
   display: inline-block;
@@ -204,6 +221,44 @@ form input[type="submit"] {
     align-items: center;   /* Centers content vertically */
 }
  
+/* Account */
+
+.account-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.account-container h2, .account-container h3 {
+    text-align: center;
+}
+
+.account-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-container input[type="text"],
+.account-container input[type="password"],
+.account-container input[type="submit"] {
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.account-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.account-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
 
 
   
