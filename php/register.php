@@ -22,34 +22,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm_password = $_POST['cpass'];
     $role = "customer";
 
-    // Check if passwords match
     if ($password !== $confirm_password) {
-        // Redirect with an error message
         header("Location: ../register.html?error=passwords_mismatch");
         exit();
     }
 
-    // Hash the password
-    $hashedp = password_hash($password, PASSWORD_DEFAULT);
+    // Check if the email already exists
+    $sql = "SELECT email FROM users WHERE email = ?";
+    $try = $conn->prepare($sql);
 
-    // Insert the new user into the database
+    if ($try) {
+        $try->bind_param("s", $email);
+        $try->execute();
+        $try->store_result();
+
+        if ($try->num_rows > 0) {
+            header("Location: ../register.html?error=email_exists");
+            exit();
+        }
+    } else {
+        die("Query preparation failed: " . $conn->error);
+    }
+
+    // Insert the new user
+    $hashedp = password_hash($password, PASSWORD_DEFAULT);
     $sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
     $try = $conn->prepare($sql);
 
     if ($try) {
         $try->bind_param("ssss", $name, $email, $hashedp, $role);
-
         if ($try->execute()) {
-            // Automatically log in the new user
-            $user_id = $conn->insert_id; // Get the last inserted ID
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['role'] = $role;
-
-            // Redirect to the dashboard
-            header("Location: ../dashboard.php");
+            header("Location: ../login.html?success=registration_successful");
             exit();
         } else {
-            // Registration failed
             header("Location: ../register.html?error=registration_failed");
             exit();
         }
@@ -61,5 +66,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
-

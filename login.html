@@ -18,6 +18,15 @@
         </div>
 
         <div class="loginform">
+          <?php if (isset($_GET['error'])): ?>
+        <p class="error-message">
+            <?php 
+                if ($_GET['error'] == 'empty_fields') echo "Please fill in all fields.";
+                elseif ($_GET['error'] == 'incorrect_password') echo "Incorrect password. Please try again.";
+                elseif ($_GET['error'] == 'email_not_found') echo "No account found with this email.";
+            ?>
+        </p>
+    <?php endif; ?>
           <form method="POST" action="php/login.php">
             <label for="email">Email:</label><br>
             <input type="text" id="email" placeholder="Enter Email" name="email"><br>
@@ -28,7 +37,7 @@
         </div> 
 
         <div class="registerLoginTitle">
-          <h2>Register <h2>
+          <h2>Register </h2>
         </div>
 
         <div class="gotoregister">

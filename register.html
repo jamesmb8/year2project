@@ -10,6 +10,15 @@
   <body>
     <div id="header"></div>
     <div class = "register-container">
+       <?php if (isset($_GET['error'])): ?>
+        <p class="error-message">
+            <?php 
+                if ($_GET['error'] == 'passwords_mismatch') echo "Passwords do not match.";
+                elseif ($_GET['error'] == 'email_exists') echo "This email is already registered.";
+                elseif ($_GET['error'] == 'registration_failed') echo "Registration failed. Please try again.";
+            ?>
+        </p>
+    <?php endif; ?>
         <div class="register-title">
             <h2>Create an account</h2>
         </div>

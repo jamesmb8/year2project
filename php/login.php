@@ -12,35 +12,28 @@ $dbname = "InventoryManagement";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Debug database connection
 if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
 }
 
-$error = "";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   
     $email = $_POST['email'] ?? '';
     $password = $_POST['pass'] ?? '';
 
     if (empty($email) || empty($password)) {
-        die("Email or password is missing.");
+        header("Location: ../login.html?error=empty_fields");
+        exit();
     }
 
     $sql = "SELECT userID, password, role FROM users WHERE email = ?";
     $try = $conn->prepare($sql);
 
     if (!$try) {
-        die("Preparation failed: " . $conn->error);
+        die("Query preparation failed: " . $conn->error);
     }
 
     $try->bind_param("s", $email);
-
-    if (!$try->execute()) {
-        die("Database query failed: " . $try->error);
-    }
-
+    $try->execute();
     $try->store_result();
 
     if ($try->num_rows > 0) {
@@ -52,11 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $id;
             $_SESSION['role'] = $role;
 
-            // Debug headers
-            if (headers_sent($file, $line)) {
-                die("Headers already sent in $file on line $line");
-            }
-
             if ($role === 'admin' || $role === 'manager') {
                 header("Location: ../admindash.php");
             } elseif ($role === 'customer') {
@@ -64,10 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit();
         } else {
-            $error = "Incorrect password. Please try again.";
+            header("Location: ../login.html?error=incorrect_password");
+            exit();
         }
     } else {
-        $error = "No account found with this email. Please try again.";
+        header("Location: ../login.html?error=email_not_found");
+        exit();
     }
 
     $try->close();
