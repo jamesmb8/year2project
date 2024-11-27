@@ -2,8 +2,9 @@
 session_start();
 $role = $_SESSION['role'];
 ?>
-<link rel="stylesheet" href="../style.css" />
-<div class="adminsidenav" id="adminsidenav">
+<link rel="stylesheet" href="../CSS/style.css" />
+<div class="sidenav" id="adminsidenav">
+
     <?php if ($role == "customer"): ?>
         <a href="dashboard.html">Home</a>
         <a href="account.html">Account</a>

@@ -20,10 +20,7 @@ if ($conn->connect_error) {
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "<pre>";
-    print_r($_POST); // Debug POST data
-    echo "</pre>";
-
+   
     $email = $_POST['email'] ?? '';
     $password = $_POST['pass'] ?? '';
 
