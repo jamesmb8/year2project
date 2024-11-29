@@ -1,24 +1,22 @@
-<?php   
+<?php
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $servername = "localhost";
 $username = "root";
-$password = "Hallam123@";
+$password = "";
 $dbname = "InventoryManagement";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection Failed");
-}
-else {
-    echo("Successfull");
+} else {
+    echo ("Successfull");
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['pass'];
@@ -41,4 +39,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         exit();
     }
 }
-    ?>
+?>

@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 
 $servername = "localhost";
 $username = "root";
-$password = "Hallam123@";
+$password = "";
 $dbname = "InventoryManagement";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

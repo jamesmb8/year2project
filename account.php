@@ -12,7 +12,7 @@ ini_set('display_errors', 1);
 
 $servername = "localhost";
 $username = "root";
-$password = "Hallam123@";
+$password = "";
 $dbname = "InventoryManagement";
 
 // Database connection
@@ -62,43 +62,45 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="CSS/style.css" />
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <title>Home page</title>
-  </head>
 
-  <body>
-    <div id="header"></div>
-<div id="sidenav"></div>
-<div class="account-container">
-        <h2>Your Account</h2>
-        <form method="POST" action="account.php">
-            <label for="name">Company Name:</label>
-            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>" readonly><br>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <title>Home page</title>
+</head>
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly><br>
+<body>
+  <div id="header"></div>
+  <div id="sidenav"></div>
+  <div class="account-container">
+    <h2>Your Account</h2>
+    <form method="POST" action="account.php">
+      <label for="name">Company Name:</label>
+      <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>" readonly><br>
 
-    <h3>Update Password</h3>
-    <label for="new_password">New Password:</label>
-    <input type="password" id="new_password" name="new_password" required><br>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly><br>
 
-    <label for="confirm_password">Confirm Password:</label>
-    <input type="password" id="confirm_password" name="confirm_password" required><br>
+      <h3>Update Password</h3>
+      <label for="new_password">New Password:</label>
+      <input type="password" id="new_password" name="new_password" required><br>
 
-    <input type="submit" name="update_password" value="Update Password">
-  </form>
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" id="confirm_password" name="confirm_password" required><br>
 
-  <?php if ($password_message): ?>
-    <p style="color: red;"><?php echo htmlspecialchars($password_message); ?></p>
-  <?php endif; ?>
-</div>
+      <input type="submit" name="update_password" value="Update Password">
+    </form>
+
+    <?php if ($password_message): ?>
+      <p style="color: red;"><?php echo htmlspecialchars($password_message); ?></p>
+    <?php endif; ?>
+  </div>
 
 
- <a href="php/logout.php">Logout</a>
-<script src="script.js"></script>
-  </body>
+  <a href="php/logout.php">Logout</a>
+  <script src="script.js"></script>
+</body>
+
 </html>

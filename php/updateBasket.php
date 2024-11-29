@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Fetch price from the database for updated total
     $servername = "localhost";
     $username = "root";
-    $password = "Hallam123@";
+    $password = "";
     $dbname = "InventoryManagement";
 
     $conn = new mysqli($servername, $username, $password, $dbname);

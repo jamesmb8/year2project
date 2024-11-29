@@ -12,7 +12,7 @@ $basket = $_SESSION['basket'] ?? [];
 // Fetch product details from database
 $servername = "localhost";
 $username = "root";
-$password = "Hallam123@";
+$password = "";
 $dbname = "InventoryManagement";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -88,7 +88,7 @@ $conn->close();
             </tbody>
         </table>
     </main>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
