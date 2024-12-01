@@ -88,8 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Other functionalities like basket handling (if necessary)...
 
-
-
   // Attach basket functionality if on basket.php
   const basketTableBody = document.querySelector("#basketTable tbody");
 
@@ -177,6 +175,62 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
+  }
+  fetch("php/fetchBasket.php")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Basket data:", data);
+      // Handle basket data (e.g., update UI)
+    })
+    .catch((error) => {
+      console.error("Error fetching basket:", error);
+    });
+
+  // Function to remove an item from the basket
+  function removeItemFromBasket(productId, row) {
+    fetch("php/removeFromBasket.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ productId }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          row.remove();
+          alert("Item removed from basket!");
+        } else {
+          alert("Failed to remove item: " + data.message);
+        }
+      })
+      .catch((error) => console.error("Error removing item:", error));
+  }
+
+  // Function to update the basket quantity
+  function updateBasket(productId, quantity, row) {
+    fetch("php/updateBasket.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ productId, quantity }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          const totalCell = row.querySelector("td:nth-child(4)");
+          totalCell.textContent = `£${data.newTotal.toFixed(2)}`;
+        } else {
+          alert("Failed to update basket: " + data.message);
+        }
+      })
+      .catch((error) => console.error("Error updating basket:", error));
   }
 
   // Function to handle basket actions

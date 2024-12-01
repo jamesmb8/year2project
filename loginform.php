@@ -41,7 +41,7 @@
         </div>
 
         <div class="gotoregister">
-          <h4>No Account? <a href="register.html">Sign-up here!</a></h4>
+          <h4>No Account? <a href="registerform.php">Sign-up here!</a></h4>
         </div>
       </div>
 

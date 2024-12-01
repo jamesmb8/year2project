@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 
 $servername = "localhost";
 $username = "root";
-$password = "Hallam123@";
+$password = "";
 $dbname = "InventoryManagement";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role = "customer";
 
     if ($password !== $confirm_password) {
-        header("Location: ../register.html?error=passwords_mismatch");
+        header("Location: ../registerform.php?error=passwords_mismatch");
         exit();
     }
 
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $try->store_result();
 
         if ($try->num_rows > 0) {
-            header("Location: ../register.html?error=email_exists");
+            header("Location: ../registerform.php?error=email_exists");
             exit();
         }
     } else {
@@ -52,10 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($try) {
         $try->bind_param("ssss", $name, $email, $hashedp, $role);
         if ($try->execute()) {
-            header("Location: ../login.html?success=registration_successful");
+            header("Location: ../dashboard.php?success=registration_successful");
             exit();
         } else {
-            header("Location: ../register.html?error=registration_failed");
+            header("Location: ../registerform.php?error=registration_failed");
             exit();
         }
         $try->close();

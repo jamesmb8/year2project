@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 
 $servername = "localhost";
 $username = "root";
-$password = "Hallam123@";
+$password = "";
 $dbname = "InventoryManagement";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['pass'] ?? '';
 
     if (empty($email) || empty($password)) {
-        header("Location: ../login.html?error=empty_fields");
+        header("Location: ../loginform.php?error=empty_fields");
         exit();
     }
 
