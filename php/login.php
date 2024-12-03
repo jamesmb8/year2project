@@ -52,11 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit();
         } else {
-            header("Location: ../login.html?error=incorrect_password");
+            header("Location: ../loginform.php?error=incorrect_password");
             exit();
         }
     } else {
-        header("Location: ../login.html?error=email_not_found");
+        header("Location: ../loginform.php?error=email_not_found");
         exit();
     }
 
