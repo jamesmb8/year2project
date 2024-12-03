@@ -3,7 +3,7 @@ session_start();
 
 // Redirect to login if not logged in or not an admin/manager
 if (!isset($_SESSION['user_id']) || !in_array($_SESSION['role'], ['admin', 'manager'])) {
-  header("Location: login.html");
+  header("Location: loginform.php");
   exit;
 }
 ?>

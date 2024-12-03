@@ -3,7 +3,7 @@ session_start();
 
 // Redirect to login if not logged in
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
-  header("Location: login.html");
+  header("Location: loginform.php");
   exit;
 }
 ?>
