@@ -267,27 +267,6 @@ form input[type="submit"] {
 }
 
 
-/* Reports page*/
-
-.reporttoptitle{
-
-  font-size: 25px;
-  color: #011302;
-  text-align: center;
-  margin: 20px 0;;
-  padding: 3px;
-  }
-  
-
-.Title-reports{
-  
-  font-size: 30px;
-  width: 60px;
-  border-collapse: collapse;
-  margin: 20px auto;
-  
-}
-
 
 
 

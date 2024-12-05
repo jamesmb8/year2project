@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const basketTableBody = document.querySelector("#basketTable tbody");
 
   if (basketTableBody) {
-    fetch("php/getBasket.php")
+    fetch("php/fetchBasket.php")
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {

@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+   
+}
+
+.container {
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+.dashboard-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.dashboard-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.dashboard-col {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.product-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-list li {
+    background-color: #f1f1f1;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.month-selector {
+    width: 100%;
+    padding: 8px;
+    margin-top: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Style for sidenav */
+.sidenav {
+    height: 100%;            /* Full height */
+    width: 250px;            /* Fixed width */
+    position: fixed;         /* Sticks it to the side */
+    top: 0;                  /* Align to the top */
+    left: 0;                 /* Align to the left edge */
+    background-color: #333;  /* Dark background color */
+    overflow-x: hidden;      /* No horizontal scroll */
+    padding-top: 60px;       /* Padding at the top */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* Add shadow for depth */
+    z-index: 500;            /* Ensures it stays on top */
+}
+
+/* Links inside the sidenav */
+.sidenav a {
+    padding: 10px 15px;      /* Space inside the links */
+    text-decoration: none;   /* Remove underline */
+    font-size: 18px;         /* Font size */
+    color: white;            /* White text color */
+    display: block;          /* Each link on a new line */
+    transition: 0.3s;        /* Smooth hover effect */
+}
+
+/* Hover effect for links */
+.sidenav a:hover {
+    background-color: #575757; /* Darker gray on hover */
+    color: #f1f1f1;            /* Slightly lighter text */
+}
+
+/* Main content (adjust layout to avoid overlap with sidenav) */
+.content {
+    margin-left: 250px;      /* Push content to the right to avoid sidenav overlap */
+    padding: 20px; 
+    margin-top: 60px;    
+    z-index: 1;       /* Add some padding */
+}
+
+
+/* Header */
+.header {
+    width: 100%;              /* Full width */
+    background-color: #333;   /* Dark background */
+    color: white;             /* Text color */
+    padding: 5px 20px;       /* Spacing */
+    position: fixed;          /* Fixed position */
+    top: 0;                   /* At the top */
+    left: 0;                  /* No left margin */
+    z-index: 1000;            /* Higher than the sidenav */
+    display: flex;            /* Align content horizontally */
+    justify-content: space-between; /* Space between elements */
+    align-items: center;      /* Center content vertically */
+}
+ 
+
+/* Reports page*/
+
+.reporttoptitle{
+
+    font-size: 25px;
+    color: #011302;
+    text-align: center;
+    margin: 20px 0;;
+    padding: 3px;
+    }
+    
+  
+  .Title-reports{
+    
+    font-size: 30px;
+    width: 60px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    
+  }
+  .table th, .table td {
+    padding: 12px; /* Increased padding */
+    font-size: 14px; /* Adjusted font size */
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight rows on hover */
+}

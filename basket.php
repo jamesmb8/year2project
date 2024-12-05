@@ -37,6 +37,7 @@ if (!empty($basket)) {
     $stmt->close();
 }
 $conn->close();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,9 +85,15 @@ $conn->close();
                 } else {
                     echo "<tr><td colspan='5'>Your basket is empty.</td></tr>";
                 }
+                
                 ?>
             </tbody>
         </table>
+        <?php if (!empty($productDetails)): ?>
+        <form action="checkout.php" method="POST">
+            <button type="submit" class="checkout-btn">Checkout</button>
+        </form>
+    <?php endif; ?>
     </main>
     <script src="script.js"></script>
 </body>
