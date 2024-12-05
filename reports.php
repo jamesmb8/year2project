@@ -59,8 +59,7 @@ $conn->close();
 <body>
 <div id="header"></div>
 <div id="sidenav"></div>
-    <div id="header"></div>
-    <div id="sidenav"></div>
+    
     <div class="content">
         <div class="container">
             <h1 class="dashboard-title">Sales Reports</h1>
