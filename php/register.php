@@ -52,7 +52,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($try) {
         $try->bind_param("ssss", $name, $email, $hashedp, $role);
         if ($try->execute()) {
-            header("Location: ../dashboard.php?success=registration_successful");
+            // Get the user ID of the newly created user
+            $userID = $conn->insert_id;
+
+            // Set session variables to log in the user
+            $_SESSION['user_id'] = $userID;
+            $_SESSION['name'] = $name;
+            $_SESSION['email'] = $email;
+            $_SESSION['role'] = $role;
+
+            // Redirect to dashboard
+            header("Location: ../dashboard.php");
             exit();
         } else {
             header("Location: ../registerform.php?error=registration_failed");
