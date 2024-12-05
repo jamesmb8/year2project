@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: loginform.php");
     exit();
@@ -19,7 +20,6 @@ if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
 }
 
-
 // Initialize variables
 $salesData = [];
 
@@ -29,10 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate date input
     if (!empty($startDate) && !empty($endDate)) {
-        // Prepare and execute SQL query
-        $sql = "SELECT saleID, userID, productID, quantity, price, sale_date 
-                FROM sales 
-                WHERE sale_date BETWEEN ? AND ?";
+        // Prepare and execute SQL query with a JOIN
+        $sql = "SELECT sales.saleID, sales.userID, sales.productID, products.productName, 
+                       sales.quantity, sales.price, sales.sale_date 
+                FROM sales
+                JOIN products ON sales.productID = products.productID
+                WHERE sales.sale_date BETWEEN ? AND ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $startDate, $endDate);
         $stmt->execute();
@@ -79,7 +81,7 @@ $conn->close();
                         <tr>
                             <th>Sale ID</th>
                             <th>User ID</th>
-                            <th>Product ID</th>
+                            <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Sale Date</th>
@@ -91,7 +93,7 @@ $conn->close();
                                 <tr>
                                     <td><?php echo htmlspecialchars($sale['saleID']); ?></td>
                                     <td><?php echo htmlspecialchars($sale['userID']); ?></td>
-                                    <td><?php echo htmlspecialchars($sale['productID']); ?></td>
+                                    <td><?php echo htmlspecialchars($sale['productName']); ?></td>
                                     <td><?php echo htmlspecialchars($sale['quantity']); ?></td>
                                     <td><?php echo htmlspecialchars(number_format($sale['price'], 2)); ?></td>
                                     <td><?php echo htmlspecialchars($sale['sale_date']); ?></td>

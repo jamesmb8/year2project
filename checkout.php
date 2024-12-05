@@ -36,7 +36,7 @@ try {
     $orderId = $stmt->insert_id;
     $stmt->close();
 
-    // Insert each item into the `orderItems` table
+    // Insert each item into the `orderItems` table and `sales` table
     foreach ($basket as $productId => $quantity) {
         // Get product price
         $stmt = $conn->prepare("SELECT price FROM products WHERE productID = ?");
@@ -59,6 +59,12 @@ try {
         // Update product quantity
         $stmt = $conn->prepare("UPDATE products SET quantity = quantity - ? WHERE productID = ?");
         $stmt->bind_param('ii', $quantity, $productId);
+        $stmt->execute();
+        $stmt->close();
+
+        // Insert into `sales`
+        $stmt = $conn->prepare("INSERT INTO sales (userID, productID, quantity, price, sale_date) VALUES (?, ?, ?, ?, NOW())");
+        $stmt->bind_param('iiid', $userId, $productId, $quantity, $price);
         $stmt->execute();
         $stmt->close();
     }
