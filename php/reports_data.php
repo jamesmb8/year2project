@@ -1,5 +1,5 @@
 <?php
-// reports_data.php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 

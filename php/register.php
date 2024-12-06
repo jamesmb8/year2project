@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Check if the email already exists
+
     $sql = "SELECT email FROM users WHERE email = ?";
     $try = $conn->prepare($sql);
 
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Query preparation failed: " . $conn->error);
     }
 
-    // Insert the new user
+
     $hashedp = password_hash($password, PASSWORD_DEFAULT);
     $sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
     $try = $conn->prepare($sql);
@@ -52,16 +52,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($try) {
         $try->bind_param("ssss", $name, $email, $hashedp, $role);
         if ($try->execute()) {
-            // Get the user ID of the newly created user
+            
             $userID = $conn->insert_id;
 
-            // Set session variables to log in the user
+           
             $_SESSION['user_id'] = $userID;
             $_SESSION['name'] = $name;
             $_SESSION['email'] = $email;
             $_SESSION['role'] = $role;
 
-            // Redirect to dashboard
+           
             header("Location: ../dashboard.php");
             exit();
         } else {

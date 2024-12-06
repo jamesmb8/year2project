@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupReportsFilter();
 });
 
-// Load header
+// Get header
 function loadHeader() {
     fetch('php/header.php')
         .then(response => response.text())
@@ -13,7 +13,7 @@ function loadHeader() {
         .catch(error => console.error('Error loading header:', error));
 }
 
-// Load side navigation
+// Get side nav
 function loadSideNav() {
     fetch('php/adminsidenav.php')
         .then(response => response.text())
@@ -21,7 +21,7 @@ function loadSideNav() {
         .catch(error => console.error('Error loading sidenav:', error));
 }
 
-// Initialize dashboard
+// Create dashboard
 function initializeDashboard() {
     const monthSelector = document.getElementById('monthSelector');
     const currentMonth = document.getElementById('currentMonth');
@@ -112,7 +112,7 @@ function renderLowStock(lowStock) {
     });
 }
 
-// Setup report filter
+
 function setupReportsFilter() {
     const filterButton = document.getElementById('filterButton');
     filterButton.addEventListener('click', async () => {

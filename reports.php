@@ -20,16 +20,16 @@ if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
 }
 
-// Initialize variables
+
 $salesData = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $startDate = $_POST['startDate'];
     $endDate = $_POST['endDate'];
 
-    // Validate date input
+
     if (!empty($startDate) && !empty($endDate)) {
-        // Prepare and execute SQL query with a JOIN
+     
         $sql = "SELECT sales.saleID, sales.userID, sales.productID, products.productName, 
                        sales.quantity, sales.price, sales.sale_date 
                 FROM sales

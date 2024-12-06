@@ -16,7 +16,7 @@ if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
 }
 
-// Handle product update
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update') {
     $productID = $_POST['productID'];
     $price = $_POST['price'];
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $stmt->execute();
 }
 
-// Fetch all products
+
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
 ?>

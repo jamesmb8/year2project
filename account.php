@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-  // Redirect to login page if not logged in
+
   header("Location: loginform.php");
   exit();
 }
@@ -15,7 +15,7 @@ $username = "root";
 $password = "";
 $dbname = "InventoryManagement";
 
-// Database connection
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Database connection failed: " . $conn->connect_error);
@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 
 $user_id = $_SESSION['user_id'];
 
-// Fetch user details
+
 $sql = "SELECT name, email FROM users WHERE userID = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
@@ -32,7 +32,7 @@ $stmt->bind_result($name, $email);
 $stmt->fetch();
 $stmt->close();
 
-// Fetch user's past orders
+
 $order_sql = "
     SELECT o.orderID, p.productName, oi.quantity, oi.price 
     FROM orders o
@@ -46,7 +46,7 @@ $order_stmt->bind_param("i", $user_id);
 $order_stmt->execute();
 $order_result = $order_stmt->get_result();
 
-// Handle password update
+
 $password_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_password'])) {

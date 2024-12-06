@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Update item quantity
+
     $_SESSION['basket'][$productId] = $quantity;
 
-    // Fetch price from the database for updated total
+
     $servername = "localhost";
     $username = "root";
     $password = "";

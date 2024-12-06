@@ -6,10 +6,10 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Fetch basket from session
+
 $basket = $_SESSION['basket'] ?? [];
 
-// Fetch product details from database
+
 $servername = "localhost";
 $username = "root";
 $password = "";

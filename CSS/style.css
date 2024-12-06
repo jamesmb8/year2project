@@ -2,7 +2,7 @@
   font-family: "Poppins";
 }
 
-/* Log in page */
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
   margin: 0;
@@ -19,6 +19,7 @@ body{
   background: white;
   margin: 16px;
 }
+/* Log in page */
 .logincontainer {
   position: relative;
   max-width: 430px;
@@ -169,56 +170,56 @@ form input[type="submit"] {
   width: 1rem;
   height: 1rem;
 }
-/* Style for sidenav */
+/*Sidenav */
 .sidenav {
-    height: 100%;            /* Full height */
-    width: 250px;            /* Fixed width */
-    position: fixed;         /* Sticks it to the side */
-    top: 0;                  /* Align to the top */
-    left: 0;                 /* Align to the left edge */
-    background-color: #333;  /* Dark background color */
-    overflow-x: hidden;      /* No horizontal scroll */
-    padding-top: 60px;       /* Padding at the top */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* Add shadow for depth */
-    z-index: 500;           /* Ensures it stays on top */
+    height: 100%;            
+    width: 250px;            
+    position: fixed;         
+    top: 0;                  
+    left: 0;                 
+    background-color: #333; 
+    overflow-x: hidden;      
+    padding-top: 60px;       
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2); 
+    z-index: 500;          
 }
 
-/* Links inside the sidenav */
+
 .sidenav a {
-    padding: 10px 15px;      /* Space inside the links */
-    text-decoration: none;   /* Remove underline */
-    font-size: 18px;         /* Font size */
-    color: white;            /* White text color */
-    display: block;          /* Each link on a new line */
-    transition: 0.3s;        /* Smooth hover effect */
+    padding: 10px 15px;      
+    text-decoration: none;   
+    font-size: 18px;         
+    color: white;           
+    display: block;          
+    transition: 0.3s;        
 }
 
-/* Hover effect for links */
+
 .sidenav a:hover {
-    background-color: #575757; /* Darker gray on hover */
-    color: #f1f1f1;            /* Slightly lighter text */
+    background-color: #575757; 
+    color: #f1f1f1;            
 }
 
-/* Main content (adjust layout to avoid overlap with sidenav) */
+
 .main-content {
-    margin-left: 250px;      /* Push content to the right to avoid sidenav overlap */
-    padding: 20px;           /* Add some padding */
+    margin-left: 250px;      
+    padding: 20px;           
 }
 
 
 /* Header */
 .header {
-    width: 100%;           /* Full width across the page */
-    background-color: #333; /* Dark background color */
-    color: white;          /* Text color */
-    padding: 10px 20px;    /* Spacing inside the header */
-    position: fixed;       /* Stays at the top even on scroll */
-    top: 0;                /* Aligns to the very top of the page */
-    left: 0;               /* Ensures no gap on the left */
-    z-index: 1000;         /* Makes sure it stays above other content */
-    display: flex;         /* Aligns content horizontally */
-    justify-content: space-between; /* Space between elements */
-    align-items: center;   /* Centers content vertically */
+    width: 100%;          
+    background-color: #333; 
+    color: white;         
+    padding: 10px 20px;    
+    position: fixed;       
+    top: 0;                
+    left: 0;               
+    z-index: 1000;         
+    display: flex;         
+    justify-content: space-between; 
+    align-items: center;  
 }
  
 /* Account */
