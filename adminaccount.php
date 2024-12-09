@@ -33,20 +33,6 @@ $stmt->fetch();
 $stmt->close();
 
 
-$order_sql = "
-    SELECT o.orderID, p.productName, oi.quantity, oi.price 
-    FROM orders o
-    JOIN orderItems oi ON o.orderID = oi.orderID
-    JOIN products p ON oi.productID = p.productID
-    WHERE o.userID = ?
-    ORDER BY o.orderID DESC
-";
-$order_stmt = $conn->prepare($order_sql);
-$order_stmt->bind_param("i", $user_id);
-$order_stmt->execute();
-$order_result = $order_stmt->get_result();
-
-
 $password_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_password'])) {
@@ -82,7 +68,7 @@ $conn->close();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="CSS/style.css" />
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <title>Your Account</title>
+  <title>Home page</title>
 </head>
 
 <body>
@@ -91,7 +77,7 @@ $conn->close();
   <div class="account-container">
     <h2>Your Account</h2>
     <form method="POST" action="account.php">
-      <label for="name">Name:</label>
+      <label for="name">Company Name:</label>
       <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>" readonly><br>
 
       <label for="email">Email:</label>
@@ -106,42 +92,15 @@ $conn->close();
 
       <input type="submit" name="update_password" value="Update Password">
     </form>
-</div>
 
     <?php if ($password_message): ?>
       <p style="color: red;"><?php echo htmlspecialchars($password_message); ?></p>
     <?php endif; ?>
-
-    <h3>Your Past Orders</h3>
-    <?php if ($order_result->num_rows > 0): ?>
-      <table>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php while ($row = $order_result->fetch_assoc()): ?>
-            <tr>
-              <td><?php echo htmlspecialchars($row['orderID']); ?></td>
-              <td><?php echo htmlspecialchars($row['productName']); ?></td>
-              <td><?php echo htmlspecialchars($row['quantity']); ?></td>
-              <td>£<?php echo htmlspecialchars(number_format($row['price'], 2)); ?></td>
-            </tr>
-          <?php endwhile; ?>
-        </tbody>
-      </table>
-    <?php else: ?>
-      <p>You have no past orders.</p>
-    <?php endif; ?>
   </div>
-<div class="bottom">
+
+
   <a href="php/logout.php">Logout</a>
-    </div>
-  <script src="script.js"></script>
+  <script src="admin.js"></script>
 </body>
 
 </html>

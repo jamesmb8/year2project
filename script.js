@@ -4,14 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const productTableBody = document.querySelector("#producttable tbody");
   const viewBasketBtn = document.getElementById("viewBasketBtn");
 
-  // Redirect to basket.php when the button is clicked
   if (viewBasketBtn) {
     viewBasketBtn.addEventListener("click", () => {
       window.location.href = "basket.php";
     });
   }
 
-  // Load the header
+  // Get header
   fetch("php/header.php")
     .then((response) => response.text())
     .then((data) => {
@@ -21,13 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error loading header:", error);
     });
 
-  // Fetch user role and load the appropriate sidenav
+  // Get user role
   fetch("php/getRole.php")
     .then((response) => response.json())
     .then((data) => {
       const role = data.role;
 
-      // Check if we are on the admin dashboard
+    
       const isAdminDash = window.location.pathname.includes("admindash.php");
 
       const sidenavFile =
@@ -48,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error fetching user role:", error);
     });
 
-  // Load product data into the table if on a page with #producttable
+ 
   if (productTableBody) {
     fetch("php/getProducts.php")
       .then((response) => response.json())
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             productTableBody.appendChild(row);
           });
 
-          // Attach event listeners after products are loaded
+      
           attachButtonListeners();
         } else {
           console.error("Failed to load products:", data.message);
@@ -86,13 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Other functionalities like basket handling (if necessary)...
+  
 
-  // Attach basket functionality if on basket.php
+  
   const basketTableBody = document.querySelector("#basketTable tbody");
 
   if (basketTableBody) {
-    fetch("php/getBasket.php")
+    fetch("php/fetchBasket.php")
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
@@ -127,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Error fetching basket:", error));
   }
 
-  // Function to attach event listeners for dynamically created buttons
+
   function attachButtonListeners() {
     productTableBody.addEventListener("click", (event) => {
       if (event.target.classList.contains("quantity-btn")) {
@@ -185,15 +184,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then((data) => {
       console.log("Basket data:", data);
-      // Handle basket data (e.g., update UI)
+     
     })
     .catch((error) => {
       console.error("Error fetching basket:", error);
     });
 
-  // Function to remove an item from the basket
+
   function removeItemFromBasket(productId, row) {
-    fetch("php/removeFromBasket.php", {
+    fetch("php/removeFrombasket.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -212,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Error removing item:", error));
   }
 
-  // Function to update the basket quantity
+
   function updateBasket(productId, quantity, row) {
     fetch("php/updateBasket.php", {
       method: "POST",
