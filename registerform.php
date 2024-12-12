@@ -30,6 +30,7 @@
           <label for="email">Email:</label><br>
           <input type="text" id="email" name="email" required><br>
 
+
            <label for="pass">Password:</label><br>
           <input type="text" id="pass" name="pass" required><br>
 
