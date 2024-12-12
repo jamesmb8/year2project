@@ -43,6 +43,7 @@ class loginTest extends TestCase {
 
         // Assert redirection with the error message
         $this->assertStringContainsString('Location: ../loginform.php?error=email_not_found', $output);
+        
     }
 }
 ?>
