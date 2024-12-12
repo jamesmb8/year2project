@@ -2,48 +2,59 @@
 
 use PHPUnit\Framework\TestCase;
 
-class loginTest extends TestCase {
+class LoginTest extends TestCase {
+
+    // Simulate login data in different scenarios
+    public function setUp(): void {
+        $_POST['email'] = '';   // Default to empty email
+        $_POST['pass'] = '';     // Default to empty password
+    }
+
     public function testLoginSuccess() {
-        // Simulate login data
+        // Simulate correct login data
         $_POST['email'] = '11/12@email.com';
         $_POST['pass'] = 'Pass123';
 
-        // Call the login.php script
+        // Start output buffering to capture the headers
         ob_start();
-        include '../php/login.php';
+        // Include the login.php script to execute the logic
+        include '../php/login.php';  // This will execute the login logic
+
+        // Capture the output and check for redirection
         $output = ob_get_clean();
 
-        // Assert successful login redirection
+        // Check for the expected redirection
         $this->assertStringContainsString('Location: ../dashboard.php', $output);
     }
 
     public function testIncorrectPassword() {
-        // Simulate login data with an incorrect password
-        $_POST['email'] = 'test@example.com';
-        $_POST['pass'] = 'wrongpassword';
+        // Simulate incorrect password
+        $_POST['email'] = '11/12@email.com';
+        $_POST['pass'] = 'WrongPass';
 
-        // Call the login.php script
+        // Start output buffering
         ob_start();
-        include 'php/login.php';
+        include '../php/login.php';
+
         $output = ob_get_clean();
 
-        // Assert redirection with the error message
+        // Check for the incorrect password redirection
         $this->assertStringContainsString('Location: ../loginform.php?error=incorrect_password', $output);
     }
 
     public function testEmailNotFound() {
-        // Simulate login data with an email not in the database
-        $_POST['email'] = 'nonexistent@example.com';
+        // Simulate email not found in the database
+        $_POST['email'] = 'nonexistent@email.com';
         $_POST['pass'] = 'password123';
 
-        // Call the login.php script
+        // Start output buffering
         ob_start();
-        include 'php/login.php';
+        include '../php/login.php';
+
         $output = ob_get_clean();
 
-        // Assert redirection with the error message
+        // Check for the email not found redirection
         $this->assertStringContainsString('Location: ../loginform.php?error=email_not_found', $output);
-        
     }
 }
 ?>

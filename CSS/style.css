@@ -266,7 +266,21 @@ form input[type="submit"] {
     color: red;
     font-weight: bold;
 }
+.bottom {
+  position: fixed;
+  bottom: 20px;
 
+}
+#logout {
+  background-color: #28a745; /* Green background */
+  color: white; /* White text */
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
 
 
 

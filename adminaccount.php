@@ -98,8 +98,9 @@ $conn->close();
     <?php endif; ?>
   </div>
 
-
-  <a href="php/logout.php">Logout</a>
+<div class="bottom">
+  <a href="php/logout.php"id="logout">Logout</a>
+  </div>
   <script src="admin.js"></script>
 </body>
 

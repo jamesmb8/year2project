@@ -32,10 +32,10 @@
 
 
            <label for="pass">Password:</label><br>
-          <input type="text" id="pass" name="pass" required><br>
+          <input type="password" id="pass" name="pass" required><br>
 
             <label for="pass">Confirm Password:</label><br>
-          <input type="text" id="cpass" name="cpass" required><br>
+          <input type="password" id="cpass" name="cpass" required><br>
 
           <input type="submit" id="register-button"value="Register"> 
 

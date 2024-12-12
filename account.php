@@ -139,7 +139,7 @@ $conn->close();
     <?php endif; ?>
   </div>
 <div class="bottom">
-  <a href="php/logout.php">Logout</a>
+  <a href="php/logout.php"id="logout">Logout</a>
     </div>
   <script src="script.js"></script>
 </body>
