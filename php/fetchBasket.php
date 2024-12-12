@@ -3,7 +3,7 @@ session_start();
 
 
 if (!isset($_SESSION['basket'])) {
-    $_SESSION['basket'] = []; /
+    $_SESSION['basket'] = []; 
     var_dump($_SESSION['basket']);
 }
 
