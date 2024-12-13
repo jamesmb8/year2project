@@ -146,6 +146,10 @@ form input[type="submit"] {
 
 
 /* Dashboard */
+.main-content{
+  margin-top: 5%;
+}
+
  .basket-button-container {
   text-align: right;
   margin-bottom: 10px;
@@ -159,16 +163,40 @@ form input[type="submit"] {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .basket-button:hover {
-  background-color: #45a049;
+  background-color: black;
 }
 
 .bi {
   display: inline-block;
   width: 1rem;
   height: 1rem;
+}
+
+.producttable{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  border: 2px, solid black;
+  margin: 150px;
+  margin-top: 20px;
+}
+
+.producttable th, .producttable td {
+  border: 2px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.producttable th {
+  background-color: #007bff;
+  color: #fff;
+  border: 2px, solid black;
+  padding: 20px;
 }
 /*Sidenav */
 .sidenav {
