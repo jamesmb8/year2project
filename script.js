@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Get header
+  // Get the header
   fetch("php/header.php")
     .then((response) => response.text())
     .then((data) => {

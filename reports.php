@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if (!empty($startDate) && !empty($endDate)) {
+        //sql to fetch the past sales to show as reports
      
         $sql = "SELECT sales.saleID, sales.userID, sales.productID, products.productName, 
                        sales.quantity, sales.price, sales.sale_date 
