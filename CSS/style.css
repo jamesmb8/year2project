@@ -195,7 +195,8 @@ form input[type="submit"] {
 .producttable th {
   background-color: #007bff;
   color: #fff;
-
+  border: 2px, solid black;
+  padding: 20px;
 }
 /*Sidenav */
 .sidenav {
