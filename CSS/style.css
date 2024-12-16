@@ -248,6 +248,7 @@ form input[type="submit"] {
     display: flex;         
     justify-content: space-between; 
     align-items: center;  
+    
 }
  
 /* Account */
