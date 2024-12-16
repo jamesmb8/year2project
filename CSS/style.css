@@ -253,12 +253,11 @@ form input[type="submit"] {
 /* Account */
 
 .account-container {
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
+  width: 399px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
 }
 
 .account-container h2, .account-container h3 {
@@ -266,17 +265,16 @@ form input[type="submit"] {
 }
 
 .account-container form {
-    display: flex;
-    flex-direction: column;
+   display: flex;
+   flex-direction: column;
 }
 
 .account-container input[type="text"],
 .account-container input[type="password"],
 .account-container input[type="submit"] {
-    padding: 8px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+   padding: 8px;
+   margin: 11px 0;
+   border: 1px solid #ccc;
 }
 
 .account-container input[type="submit"] {
@@ -296,17 +294,17 @@ form input[type="submit"] {
 }
 .bottom {
   position: fixed;
-  bottom: 20px;
+  bottom: 21px;
 
 }
 #logout {
   background-color: #28a745; /* Green background */
   color: white; /* White text */
-  padding: 12px 24px;
+  padding: 12px 23px;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 8px;/* Rounded corners */
   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
 }
 
