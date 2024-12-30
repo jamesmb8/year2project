@@ -38,3 +38,206 @@
     
   </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advanced HTML Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Our Advanced HTML Page</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p>This is a more complex example of an HTML page. It contains several interactive features and various types of content, such as tables, video embeds, and forms.</p>
+            <img src="intro-image.jpg" alt="Introduction Image" style="max-width:100%;">
+        </section>
+
+        <section id="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-member">
+                <img src="team1.jpg" alt="Team Member 1">
+                <h3>Jane Doe</h3>
+                <p>Lead Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="team2.jpg" alt="Team Member 2">
+                <h3>John Smith</h3>
+                <p>Graphic Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="team3.jpg" alt="Team Member 3">
+                <h3>Emily Johnson</h3>
+                <p>Project Manager</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Our Projects</h2>
+            <div class="project">
+                <h3>Website Redesign for XYZ Corp</h3>
+                <p>We revamped XYZ Corp's website to improve user experience and design.</p>
+                <img src="project1.jpg" alt="Project 1">
+            </div>
+            <div class="project">
+                <h3>Mobile App for ABC Ltd</h3>
+                <p>Developed a cross-platform mobile app for ABC Ltd to increase customer engagement.</p>
+                <img src="project2.jpg" alt="Project 2">
+            </div>
+            <div class="project">
+                <h3>eCommerce Platform for ShopNow</h3>
+                <p>Created a custom eCommerce solution for ShopNow to enhance online sales.</p>
+                <img src="project3.jpg" alt="Project 3">
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial">
+                <p>"The team at Our Company exceeded our expectations. We couldn't be happier with the results!"</p>
+                <cite>- Sarah Williams, CEO of XYZ Corp</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Their professionalism and attention to detail were outstanding. Highly recommend!"</p>
+                <cite>- Michael Brown, Marketing Director at ABC Ltd</cite>
+            </div>
+            <div class="testimonial">
+                <p>"A pleasure to work with. Their creativity brought our vision to life!"</p>
+                <cite>- Jessica Lee, Founder of ShopNow</cite>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="/submit" method="POST" id="contactForm">
+                <div>
+                    <label for="contact-name">Name:</label>
+                    <input type="text" id="contact-name" name="name" required placeholder="Your Name">
+                </div>
+                <div>
+                    <label for="contact-email">Email:</label>
+                    <input type="email" id="contact-email" name="email" required placeholder="Your Email">
+                </div>
+                <div>
+                    <label for="contact-message">Message:</label>
+                    <textarea id="contact-message" name="message" required placeholder="Your Message"></textarea>
+                </div>
+                <div>
+                    <label for="contact-phone">Phone (Optional):</label>
+                    <input type="tel" id="contact-phone" name="phone" placeholder="Your Phone Number">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="video">
+            <h2>Our Latest Promotional Video</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <h2>Our Pricing Plans</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Features</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic</td>
+                        <td>Web Design, Basic SEO</td>
+                        <td>$499</td>
+                    </tr>
+                    <tr>
+                        <td>Standard</td>
+                        <td>Web Design, Advanced SEO, Content Creation</td>
+                        <td>$899</td>
+                    </tr>
+                    <tr>
+                        <td>Premium</td>
+                        <td>Custom Design, Full SEO Optimization, Content Creation, Support</td>
+                        <td>$1499</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="blog">
+            <h2>Our Blog</h2>
+            <article>
+                <h3>How to Choose the Right Web Design Agency</h3>
+                <p>Choosing the right web design agency is crucial for your business success. In this blog post, we explain the key factors to consider...</p>
+                <a href="#">Read More</a>
+            </article>
+            <article>
+                <h3>The Importance of SEO in 2024</h3>
+                <p>SEO has evolved significantly over the years. In this post, we delve into the latest SEO trends and how they can impact your website's performance...</p>
+                <a href="#">Read More</a>
+            </article>
+            <article>
+                <h3>Tips for a Successful Mobile App Launch</h3>
+                <p>Launching a mobile app requires careful planning and execution. Our tips will guide you through the process of launching your app successfully...</p>
+                <a href="#">Read More</a>
+            </article>
+        </section>
+
+        <section id="footer">
+            <footer>
+                <p>&copy; 2024 Advanced HTML Example. All Rights Reserved.</p>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </footer>
+        </section>
+    </main>
+
+    <div id="scroll-to-top">
+        <button onclick="scrollToTop()">Back to Top</button>
+    </div>
+
+    <script>
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Contact form validation
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            let name = document.getElementById("contact-name").value;
+            let email = document.getElementById("contact-email").value;
+            let message = document.getElementById("contact-message").value;
+            
+            if (!name || !email || !message) {
+                alert("All fields are required.");
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>
