@@ -7,6 +7,7 @@ $role = $_SESSION['role'] ?? 'customer';
 
     <a href="dashboard.php">Home</a>
     <a href="account.php">Account</a>
+    <a id="AboutUs" href="about.php">About Us</a>
    
     
 

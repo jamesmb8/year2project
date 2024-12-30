@@ -213,6 +213,7 @@ margin: 20px 40px 20px 40px;
  box-shadow: 2px 0 5px  rgba(0,0,0,0.2); 
  z-index: 500;   
 }
+
 .sidenav a {
    padding: 10px 15px; 
    text-decoration: none;
@@ -220,9 +221,6 @@ margin: 20px 40px 20px 40px;
    color: black;
    display: block;
    transition: 0.3s;
-   ;
-    
-     
 }
 .sidenav a:hover {
     background-color: #575757; 
@@ -365,7 +363,6 @@ align-items: center;
 
 /* Basket  */
 
-
 .basketTable{
   width: 100%;
   border-collapse: collapse;
@@ -399,4 +396,36 @@ align-items: center;
   border-style: solid;
   border-radius: 25px;
   background-color: #28a745;
+}
+
+/* aboutUs  */
+
+.aboutUs{
+  margin: auto;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  width: 800px;
+}
+.webIntro{
+  margin-bottom: 10%;
+}
+.paraOne{
+  padding: 20px;
+
+  flex-direction: column;
+}
+.paratwo{
+  padding: 20px;
+
+  flex-direction: column;
+}
+.paraThree{
+  
+  padding: 10px;
+  flex-direction: column;
+}
+.creatorList{
+  padding: 5px;
+  margin-bottom: 4px;
 }
