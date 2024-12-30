@@ -408,22 +408,33 @@ align-items: center;
   width: 800px;
 }
 .webIntro{
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .paraOne{
   padding: 20px;
 
   flex-direction: column;
 }
+.paraOne h2{
+  text-decoration: underline;
+  padding: 5px;
+}
 .paratwo{
   padding: 20px;
 
   flex-direction: column;
 }
+.paratwo h2{
+  text-decoration: underline;
+  padding: 5px;
+}
 .paraThree{
-  
   padding: 10px;
   flex-direction: column;
+}
+.paraThree h2{
+  text-decoration: underline;
+  padding: 5px;
 }
 .creatorList{
   padding: 5px;

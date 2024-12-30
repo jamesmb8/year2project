@@ -24,7 +24,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
             <h1>Hello, and welcome to our inventory management system!</h1>
         </div>
         
-        <div class="paraOne">   
+        <div class="paraOne">  
+            <h2>Who? What? Where? Purpose? </h2> 
             <p> 
                 We are a company which is chocolate orientated. We take in mass orders for the great range of chocolate products that we
                 have in store. Our company is eager to provide you, the customer, with prices that simply cannot be beaten. We are a fairly
@@ -34,7 +35,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
             </p>
         </div>
     
-        <div class="paratwo">   
+        <div class="paratwo">  
+        <h2>Website Features </h2>  
             <p> 
                 The features of our website allow the user to track their order numbers immediately after they have placed an order.
                 This can be done through their account page and will show the order ID alongside the item and quantity, and price of that item they 
@@ -49,7 +51,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
             </p>
         </div>
     
-        <div class="paraThree">   
+        <div class="paraThree">  
+            <h2> Meet the team</h2> 
             <p> 
                 <b> people who were behind creating this system were: </b>
             </p>
@@ -69,7 +72,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
                 This assignment took around 4 months to build from the ground up. This system involves a mixture of HTML, JavaScript, CSS and PHP.
             </p>
         </div>
-
     </div>
 
     <script src="script.js"></script>
