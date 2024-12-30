@@ -106,38 +106,49 @@ $conn->close();
 
       <input type="submit" name="update_password" value="Update Password">
     </form>
-</div>
+  </div>
 
-    <?php if ($password_message): ?>
-      <p style="color: red;"><?php echo htmlspecialchars($password_message); ?></p>
-    <?php endif; ?>
+  <?php if ($password_message): ?>
+    <p style="color: red;"><?php echo htmlspecialchars($password_message); ?></p>
+  <?php endif; ?>
 
-    <h3>Your Past Orders</h3>
+  <div class="pastOrders">
+    <h3>Your Past Orders: </h3>
+    
     <?php if ($order_result->num_rows > 0): ?>
       <table>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php while ($row = $order_result->fetch_assoc()): ?>
+          <thead>
             <tr>
-              <td><?php echo htmlspecialchars($row['orderID']); ?></td>
-              <td><?php echo htmlspecialchars($row['productName']); ?></td>
-              <td><?php echo htmlspecialchars($row['quantity']); ?></td>
-              <td>£<?php echo htmlspecialchars(number_format($row['price'], 2)); ?></td>
+              <th>Order ID</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
             </tr>
-          <?php endwhile; ?>
-        </tbody>
-      </table>
-    <?php else: ?>
-      <p>You have no past orders.</p>
-    <?php endif; ?>
-  </div>
+          </thead>
+          <tbody>
+            <?php while ($row = $order_result->fetch_assoc()): ?>
+              <tr>
+                <td><?php echo htmlspecialchars($row['orderID']); ?></td>
+                <td><?php echo htmlspecialchars($row['productName']); ?></td>
+                <td><?php echo htmlspecialchars($row['quantity']); ?></td>
+                <td>£<?php echo htmlspecialchars(number_format($row['price'], 2)); ?></td>
+              </tr>
+            <?php endwhile; ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="noPast">
+
+        <?php else: ?>
+          <p>You have no past orders.</p>
+        <?php endif; ?>
+      </div>
+
+
+  
+
+
 <div class="bottom">
   <a href="php/logout.php"id="logout">Logout</a>
     </div>
