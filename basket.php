@@ -54,7 +54,7 @@ $conn->close();
     <div id="sidenav"></div>
     <main>
         <h1>Your Basket</h1>
-        <table id="basketTable">
+        <table id="basketTable" class="basketTable">
             <thead>
                 <tr>
                     <th>Product</th>

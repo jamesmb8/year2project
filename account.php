@@ -86,6 +86,7 @@ $conn->close();
 </head>
 
 <body>
+  <div class="AccountPage">
   <div id="header"></div>
   <div id="sidenav"></div>
   <div class="account-container">
@@ -112,9 +113,9 @@ $conn->close();
     <p style="color: red;"><?php echo htmlspecialchars($password_message); ?></p>
   <?php endif; ?>
 
-  <div class="pastOrders">
-    <h3>Your Past Orders: </h3>
     
+    <div class="pastOrders">
+    <h3>Your Past Orders: </h3>
     <?php if ($order_result->num_rows > 0): ?>
       <table>
           <thead>
@@ -138,14 +139,14 @@ $conn->close();
         </table>
       </div>
 
-      <div class="noPast">
-
-        <?php else: ?>
+      
+      <?php else: ?>
+        <div class="noPast">
           <p>You have no past orders.</p>
+        </div>
         <?php endif; ?>
-      </div>
 
-
+        </div>
   
 
 
