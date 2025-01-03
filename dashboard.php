@@ -1,14 +1,11 @@
 <?php
 session_start();
 
-
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
   header("Location: loginform.php");
   exit;
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,27 +20,24 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
 <div id="sidenav"></div>
 
   <div class ="main-content">
-
     <h1>Products</h1>
     <div class="basket-button-container">
     <button id="viewBasketBtn" class="basket-button">View Basket</button>
   </div>
     <table id="producttable" class="producttable">
       <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Add to basket</th>
-      </tr>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Add to basket</th>
+        </tr>
       </thead>
-        <tbody>
-          
-        </tbody>
+      <tbody>
+      </tbody>
     </table>
   </div>
  
-
 <script src="script.js"></script>
 </body>
 </html>
